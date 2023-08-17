@@ -1,0 +1,461 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+html{
+    font-size: 65%;
+   
+}
+body{
+   height: 100vh;
+   background: black;
+     
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+ul{
+    list-style-type: none;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    padding: 2rem 9%;
+    padding-top: 30px;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: black;
+    z-index: 1000;
+}
+.nav-toggle{
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    display: none;
+}
+.hamburger{
+    display: inline-block;
+    width: 2rem;
+    height: 2px;
+    background: white;
+    position: relative;
+    transition: 500ms;
+}
+.hamburger::after,
+.hamburger::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+.hamburger::after{
+    bottom: 5px;
+}
+.hamburger::before{
+    top: 5px;
+}
+.nav-list{
+    display: flex;
+}
+.nav-item{
+    padding:10px 20px;
+    position:relative;
+}
+.nav-link{
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-family: cursive;
+    position: relative;
+}
+.nav-link::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20px;
+    background:white;
+    width: 100%;
+    height: 1px;
+    display: none;
+}
+.nav-link:hover::after{
+    display: initial;
+    
+}
+.nav-item > .nav-list{
+    display: block;
+    position:absolute;
+    top: 100%;
+    left: 0;
+    width: 150px;
+    background: red;
+    display: none;
+    transition: 1s;
+}
+.nav-item:hover > .nav-list{
+    display: initial;
+}
+
+@media  screen and (max-width:765px) {
+    .nav-toggle{
+        display: initial;
+    }
+    .nav{
+        position: absolute;
+        left: 0;
+        top: 100%;
+       width: 100%;
+        display: none;
+    }
+    .nav-list{
+        display: block;
+        background: rgb(63, 32, 32);
+       
+    }
+    .nav-list span{
+        float: right;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .nav-item{
+       width: 100%;
+    }
+    .nav-item > .nav-list{
+        width: 100%;
+        position: relative;
+    }
+    .nav-link{
+        color: white;
+    }
+    .nav-link:hover::after{
+        display: none;
+    }
+    .nav-open .nav{
+        display: initial;
+    }
+    .nav-open .hamburger{
+        transform: rotate(.625turn) translateX(-5px);
+    }
+    .nav-open .hamburger::before{
+        transform: rotate(90deg) translateX(-5px);
+    }
+    .nav-open .hamburger::after{
+        display: none;
+    }
+}
+
+
+
+
+/*ad*/
+.ad{
+    padding:2rem 9%;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    height: 100vh;
+     position: relative;
+   
+}
+.parent-ad-container{
+    padding-bottom: 10rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  
+}
+.parent-ad{
+    margin-top: 10rem;
+    border: 10px solid red;
+     width: 600px;
+    height: 350px;
+    border-radius: 10px;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  
+   
+}
+.parent-ad:hover ::after{
+   background: pink;
+   clip-path: circle(400px at center);
+}
+.ad-circle{
+    position: absolute; 
+    left: 0;
+    top: 0;
+    width: 600px;
+    height: 350px;
+    border-radius: 10px; 
+    overflow: hidden;
+    
+}
+.parent-ad:hover .center-logo{
+    transform: scale(0);
+    
+}
+.center-logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    
+}
+.ad-circle::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+     border-radius: 10px;
+    background: red;
+    clip-path: circle(150px at center);
+    transition: 2s;
+   
+}
+.ad-details{
+    position: absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px ;
+    opacity: 0;
+    visibility: none;
+    transition: 2s;
+}
+.parent-ad:hover .ad-details{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.ad-details h2{
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+.ad-details p{
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+.ad-btn{
+    background: black;
+    color: white;
+    border: none;
+    padding: .8rem 1.2rem;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    border-radius: 8%;
+   letter-spacing: 1.4px;
+}
+.ad-btn:hover{
+    background: white;
+    color: black;
+    transition: 2s;
+}
+.ad-image{
+   position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    height: 500px;
+    visibility:hidden;
+    opacity: 0;
+    transition: 1s;
+    right: 0;
+    left: 20%;
+   
+ }
+.parent-ad:hover .ad-image{
+    left: 20%;
+    height: 800px;
+    visibility: visible;
+    opacity: 1;
+ 
+}
+.bubble{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: -200px;
+    width: 100%;
+  
+}
+
+.bubble li {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    
+   animation: bubble 7s linear infinite;
+    opacity: 0;
+    box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25);
+    position: relative;
+}
+.bubble li::before{
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgb(168, 159, 159);
+
+}
+
+.bubble li:nth-child(1){
+    animation-delay: 500ms;
+    width: 40px;
+    height: 40px;
+}
+.bubble li:nth-child(2){
+    animation-delay: 4s;
+    width: 80px;
+    height: 80px;
+   
+}
+
+.bubble li:nth-child(3){
+    animation-delay: 1s;
+    width: 20px;
+    height: 20px;
+}
+
+.bubble li:nth-child(4){
+    animation-delay: 7s;
+    width: 40px;
+    height: 40px;
+}
+
+.bubble li:nth-child(5){
+    animation-delay: 4s;
+    width: 80px;
+    height: 80px;
+}
+
+.bubble li:nth-child(6){
+    animation-delay: 500ms;
+    width: 30px;
+    height: 30px;
+}
+
+.bubble li:nth-child(7){
+    animation-delay: 4s;
+    width: 80px;
+    height: 80px;
+}
+
+.bubble li:nth-child(8){
+    animation-delay: 2s;
+    width: 40px;
+    height: 40px;
+}
+
+.bubble li:nth-child(9){
+    animation-delay: 4s;
+    width: 20px;
+    height: 20px;
+}
+
+.bubble li:nth-child(0){
+    animation-delay: 4s;
+    width: 40px;
+    height: 40px;
+}
+
+
+
+@keyframes bubble{
+    0%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    50%{
+        opacity: 1;
+       
+    }
+    70%{
+        opacity: 1;
+       
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-80vh);
+   
+    }
+}
+
+@media screen and (max-width:720px) {
+  
+    .parent-ad{
+        width: 350px;
+        height: 600px;
+        align-items: flex-start;
+      
+    }
+    .ad-circle{
+        width: 350px;
+        height: 600px;
+      
+    }
+    .ad-details{
+       
+        width: 100%;
+        left: 0;
+        top: -10%;
+        
+    }
+    .parent-ad:hover .ad-details{
+        top: 0;
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+    .ad-image{
+        position: absolute;
+         top:40%;
+         transform: translate(0);
+         height: 500px;
+         visibility: hidden;
+         opacity: 0;
+         transition: 1s;
+         right: 50%;
+         left: 0;
+        
+      }
+     .parent-ad:hover .ad-image{
+         top: 70%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         height: 500px;
+         visibility: visible;
+         opacity: 1;
+         
+      
+     }
+}
